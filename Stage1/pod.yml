@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: veru-app
+  labels:
+    app: information-technology
+
+spec:
+  containers:
+    - name: information-technology
+      image: stacksimplify/kubenginx:1.0.0
+      ports:
+        - containerPort: 80
+
+
+
+

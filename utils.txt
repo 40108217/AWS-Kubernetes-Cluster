@@ -1,0 +1,29 @@
+#Enable inbound rule in security-group for port 80 on EC2-NodeGroup public facing security group
+
+#Create key-pair veru-eks
+
+#After EBS CSI driver installation; add the necessary permission to EC2 role to manage the EBS volume
+
+#Install EBS CSI driver
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=master"
+
+
+# List EKS Clusters
+eksctl get clusters
+
+# Capture Node Group name
+eksctl get nodegroup --cluster=<clusterName>
+eksctl get nodegroup --cluster=killboard
+
+# Delete Node Group
+eksctl delete nodegroup --cluster=<clusterName> --name=<nodegroupName>
+eksctl delete nodegroup --cluster=kudos --name=kudos-ng-public1      
+
+# Delete Cluster
+eksctl delete cluster <clusterName>
+eksctl delete cluster killboard
+
+
+
+source ~/.bash_profile
+

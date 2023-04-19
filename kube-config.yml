@@ -1,0 +1,35 @@
+kubectl config view
+apiVersion: v1
+clusters:
+- cluster:
+    server: https://1904820EB889E915A3274E07C119B7A5.gr7.us-east-1.eks.amazonaws.com
+  name: e2e
+- cluster:
+    certificate-authority-data: DATA+OMITTED
+    server: https://16A1E1E31125BCDC26B2889FA6061D4F.gr7.us-east-1.eks.amazonaws.com
+  name: hogwart.us-east-1.eksctl.io
+contexts:
+- context:
+    cluster: hogwart.us-east-1.eksctl.io
+    user: cloud_user@hogwart.us-east-1.eksctl.io
+  name: cloud_user@hogwart.us-east-1.eksctl.io
+current-context: cloud_user@hogwart.us-east-1.eksctl.io
+kind: Config
+preferences: {}
+users:
+- name: cloud_user@hogwart.us-east-1.eksctl.io
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1beta1
+      args:
+      - token
+      - -i
+      - hogwart
+      command: aws-iam-authenticator
+      env:
+      - name: AWS_STS_REGIONAL_ENDPOINTS
+        value: regional
+      - name: AWS_DEFAULT_REGION
+        value: us-east-1
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
