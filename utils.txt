@@ -1,6 +1,8 @@
 #Enable inbound rule in security-group for port 80 on EC2-NodeGroup public facing security group
 
 #Create key-pair veru-eks
+#Add EKS cluster to local kube config
+aws eks --region <region> update-kubeconfig --name <cluster-name>
 
 #After EBS CSI driver installation; add the necessary permission to EC2 role to manage the EBS volume
 
