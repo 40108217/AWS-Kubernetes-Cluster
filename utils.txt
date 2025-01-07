@@ -25,6 +25,12 @@ eksctl delete nodegroup --cluster=kudos --name=kudos-ng-public1
 eksctl delete cluster <clusterName>
 eksctl delete cluster killboard
 
+# Worker Nodes added to the cluster should have below policies attached to get register in cluster:
+AmazonEKSWorkerNodePolicy
+AmazonEKS_CNI_Policy
+AmazonEC2ContainerRegistryReadOnly
+
+
 
 
 source ~/.bash_profile
